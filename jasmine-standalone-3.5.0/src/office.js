@@ -1,22 +1,22 @@
-class Room{
+class Office {
   constructor(){
-    this.availability = true;
+    this.rooms = [];
   }
 
-  availabilityStatus(status){
-    this.availability = status;
+  addRoom(room){
+    this.rooms.push(room);
   }
 
-  enter(){
-    if (this.availability == false) {
-      throw "Room is taken";
+  listAllRooms(){
+    return this.rooms;
+  }
+
+  listAvailableRooms(){
+    for (var i = 0; i < this.rooms.length; i++){
+      if (this.rooms[i].availability!=false){
+      return this.rooms[i];
+      }
     }
-    else {
-    this.availability = false;
-  }
-  }
 
-  exit(){
-    this.availability = true;
   }
 }
